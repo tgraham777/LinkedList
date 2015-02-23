@@ -30,13 +30,25 @@ class LinkedListTest < Minitest::Test
     assert_equal "alpha", iterative.list_head.node_name
   end
 
-  def test_list
-    skip
+  def test_tail
     iterative = IterativeList.new
     iterative.add_node("alpha")
     iterative.add_node("zeta")
     iterative.add_node("gamma")
-    assert_equal 3, iterative.list_nodes
+    assert_equal "gamma", iterative.tail.node_name
+    assert_equal nil, iterative.tail.next_node
+  end
+
+  def test_pop
+    iterative = IterativeList.new
+    iterative.add_node("alpha")
+    iterative.add_node("zeta")
+    iterative.add_node("gamma")
+    iterative.add_node("delta")
+
+    iterative.pop
+    assert_equal "gamma", iterative.tail.node_name
+    assert_equal nil, iterative.tail.next_node
   end
 
   def test_count_nodes
