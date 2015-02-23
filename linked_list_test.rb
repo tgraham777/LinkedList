@@ -36,7 +36,7 @@ class LinkedListTest < Minitest::Test
     iterative.add_node("alpha")
     iterative.add_node("zeta")
     iterative.add_node("gamma")
-    assert_equal __, iterative.list
+    assert_equal 3, iterative.list_nodes
   end
 
   def test_count_nodes
