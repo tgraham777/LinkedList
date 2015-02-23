@@ -23,22 +23,29 @@ class LinkedListTest < Minitest::Test
     assert_equal "zeta", iterative1.next_node.node_name
   end
 
+  def test_list_head
+    iterative = IterativeList.new
+    iterative.add_node("alpha")
+    iterative.add_node("zeta")
+    assert_equal "alpha", iterative.list_head.node_name
+  end
+
   def test_list
     skip
     iterative = IterativeList.new
     iterative.add_node("alpha")
     iterative.add_node("zeta")
     iterative.add_node("gamma")
-    assert_equal 3, iterative.list
+    assert_equal __, iterative.list
   end
 
   def test_count_nodes
-    skip
     iterative = IterativeList.new
     iterative.add_node("alpha")
     iterative.add_node("zeta")
     iterative.add_node("gamma")
-    assert_equal 3, iterative.counter
+    iterative.add_node("delta")
+    assert_equal 4, iterative.counter
   end
 
 #Recursive:
