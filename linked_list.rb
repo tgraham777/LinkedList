@@ -6,17 +6,20 @@ class IterativeList
   # node_data
   # next_node
 
-  attr_accessor :node, :list_head, :next_node, :counter
+  attr_accessor :node, :list_head, :counter, :tail, :next_node
 
   def initialize
     #@list = []
+    @tail = tail
+    @previous = nil
     @list_head = nil
     @next_node = nil
     @counter = 0
   end
 
-  def list_nodes
-    
+  def pop
+    @tail = @tail.previous
+    @tail.next_node = nil
   end
 
   # def position(number)
@@ -36,7 +39,9 @@ class IterativeList
         @node = @node.next_node
         #@list << @node
       end
-      @node.next_node = Node.new(node)
+      @tail = Node.new(node)
+      @tail.previous = @node
+      @node.next_node = @tail
       #@list << @node
       #@counter += 1
     end
@@ -104,11 +109,12 @@ end
 class Node
 
   attr_reader :node_name
-  attr_accessor :next_node
+  attr_accessor :next_node, :previous
 
   def initialize(node)
     @node_name = node
     @next_node = nil
+    @previous = nil
   end
 
 end
