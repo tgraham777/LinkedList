@@ -6,13 +6,13 @@ class IterativeList
   # node_data
   # next_node
 
-  attr_accessor :node, :list_head, :next_node, :list
-  #attr_reader :counter
+  attr_accessor :node, :list_head, :next_node, :list, :counter
 
   def initialize
     #@list = []
-    @list_head = list_head
+    @list_head = nil
     @next_node = nil
+    @counter = 0
   end
 
   # def position(number)
@@ -22,6 +22,7 @@ class IterativeList
   # @list_head.position = 0
 
   def add_node(node)
+    @counter += 1
     if @list_head == nil
       @node = Node.new(node)
       @list_head = @node
